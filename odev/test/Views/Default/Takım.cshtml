@@ -1,0 +1,40 @@
+﻿@model IEnumerable<test.Models.Class1>
+
+@{
+    ViewBag.Title = "Takım";
+}
+
+<h2>Takım</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TakımAdı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TakımAdı)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Fiyat)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
+      
+        @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
